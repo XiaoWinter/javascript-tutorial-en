@@ -40,6 +40,12 @@ describe("throttle(f, 1000)", function() {
     assert.equal(log, "136"); // the last call was f(6)
   });
 
+  it("execute after 1000ms", function() {
+    this.clock.tick(1000);
+    f1000(7);
+    assert.equal(log, "1367");
+  });
+
   after(function() {
     this.clock.restore();
   });
